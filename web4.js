@@ -17,14 +17,7 @@ window.onload = function () {
       "D1",
       "D2",
       "D3",
-      "E0",
-      "E1",
-      "E2",
-      "E3",
-      "F0",
-      "F1",
-      "F2",
-      "F3",
+     
     ];
     var giftLocations = [];
     var totalAttempts = 0;

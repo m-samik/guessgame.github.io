@@ -1,0 +1,69 @@
+window.onload = function () {
+  console.log("window loaded");
+  let cells = [
+    "A0",
+    "A1",
+    "A2",
+    "A3",
+    "A4",
+    "A5",
+    "B0",
+    "B1",
+    "B2",
+    "B3",
+    "B4",
+    "B5",
+    "C0",
+    "C1",
+    "C2",
+    "C3",
+    "C4",
+    "C5",
+    "D0",
+    "D1",
+    "D2",
+    "D3",
+    "D4",
+    "D5",
+    "E0",
+    "E1",
+    "E2",
+    "E3",
+    "E4",
+    "E5",
+    "F0",
+    "F1",
+    "F2",
+    "F3",
+    "F4",
+    "F5",
+  ];
+
+  var giftLocations = [];
+  var totalAttempts = 0;
+  var giftsFound = 0;
+  for (i = 0; i < 3; i++) {
+    let randomCell = cells[Math.floor(Math.random() * cells.length)];
+    giftLocations.push(randomCell);
+  }
+
+  let submitBtn = document.getElementById("submit-btn");
+
+  console.log(giftLocations);
+  submitBtn.onclick = function () {
+    totalAttempts++;
+    let rating = 100 - Math.floor((totalAttempts / 36) * 100);
+    let selectedCell = document.getElementById("val").value;
+    if (!cells.includes(selectedCell)) {
+      alert("Please enter a valid cell");
+    } else if (giftLocations.includes(selectedCell)) {
+      giftsFound++;
+      if (giftsFound === 3) {
+        alert(`You have found all the gifts. Your rating is ${rating}`);
+      }
+      document.getElementById(selectedCell).innerHTML = "Gift 🎁";
+    } else {
+      document.getElementById(selectedCell).innerHTML = "Miss 💀";
+    }
+  };
+};
